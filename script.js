@@ -50,7 +50,7 @@ function playGame(){
     let humanCore = 0;
     let computerCore = 0;
     let time = 0
-    while (time <= 5){
+    while (time < 5){
         let humanChoice = getHumanChoise();
         let computerChoice = getComputerChoice();
         let result = playRound(humanChoice, computerChoice);
