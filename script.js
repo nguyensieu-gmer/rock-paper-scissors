@@ -55,8 +55,8 @@ function playGame(){
         let computerChoice = getComputerChoice();
         let result = playRound(humanChoice, computerChoice);
         if (result == 0){
-            humanCore++;
-            computerCore++;
+            humanCore += 0;
+            computerCore += 0;
         }
         else if (result == 1){
             humanCore++;
