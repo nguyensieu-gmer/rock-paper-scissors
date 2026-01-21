@@ -50,7 +50,7 @@ function playGame(){
     let humanCore = 0;
     let computerCore = 0;
     let time = 0
-    while (time < 5){
+    for (let i = 0; i < 5; i++){
         let humanChoice = getHumanChoise();
         let computerChoice = getComputerChoice();
         let result = playRound(humanChoice, computerChoice);
@@ -64,7 +64,6 @@ function playGame(){
         else {
             computerCore++;
         }
-        time += 1;
     }
     console.log(`Your core is ${humanCore}`);
     console.log(`computer core is ${computerCore}`);
