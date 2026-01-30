@@ -54,7 +54,7 @@ button {
 }
 
 body {
-    background-color: var(--body-color);
+    background-color: rgb(95, 93, 93);
     color: var(--text-color);
 }
 
@@ -81,4 +81,94 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+/* .container */
+.container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.container .item_1{
+    flex-grow: 4;
+}
+
+.container .item_2{
+    flex-grow: 6;
+}
+
+/* option */
+
+.container .option{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    height: auto;
+    width: max-content;
+    border-radius: 10px;
+    margin-left: auto;
+}
+
+.container .option .choose img {
+    transform: scaleX(-1);
+    width: 60px;
+}
+
+/* playground */
+
+.playground {
+    background-color: black;
+    width: 700px;
+    height: 650px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+/* result meme */
+
+.playground .result_meme{
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.playground .result_meme .res_img{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    margin: 20px 50px;
+}
+
+.playground .result_meme .res_img img{
+    object-fit: cover;
+}
+
+.playground .play_area{
+    display: flex;
+    align-items: center;
+}
+
+.playground .play_area .player{
+    transform: scaleX(-1);
+}
+
+/* score */
+
+.playground .score_area{
+    display: flex;
+    justify-content: space-between;
+}
+
+.playground .score_area .score{
+    font-size: 90px;
+    padding: 0 60px;
+    margin: 0;
+}
+
 

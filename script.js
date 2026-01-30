@@ -1,73 +1,24 @@
-function getHumanChoise(){
-    let choice = prompt("let choose one: rock, paper, scissors");
-    return choice.toLowerCase();
+function randomChoise(){
+    return Math.floor(Math.random() * 3);
 }
 
-function getComputerChoice(){
-    let choice = ["rock", "paper", "scissors"];
-    return choice[Math.floor(Math.random() * 3)];
-}
-
-function playRound(humanChoice, computerChoice){
-    if (humanChoice == computerChoice){
-        console.log(`Your choice and computer choice are ${humanChoice}, You draw!`);
-        return 0;
+let playerChoice;
+let computerChoice;
+let choices = document.querySelector(".option");
+choices.addEventListener("click", e => {
+    if (e.target.id === "choice_1"){
+        playerChoice = 0;
+    }
+    else if (e.target.id === "choice_2"){
+        playerChoice = 1;
     }
     else{
-        if (humanChoice == "rock"){
-            if (computerChoice == "paper"){
-                console.log("paper covers rock. You lose!");
-                return -1;
-            }
-            else{
-                console.log("rock crashes scissors. You win!");
-                return 1;
-            }
-        }
-        else if (humanChoice == "paper"){
-            if (computerChoice == "rock"){
-                console.log(`paper covers rock. You win!`);
-                return 1;
-            }
-            else {
-                console.log(`scissors cuts paper. You lose!`);
-                return -1;
-            }
-        } else {
-            if (computerChoice == "rock"){
-                console.log(`rock crashes scissors. You lose!`);
-                return -1;
-            }
-            else {
-                console.log(`scissors cuts paper. You win!`);
-                return 1;
-            }
-        }
+        playerChoice = 2;
     }
-}
+    computerChoice = randomChoise();
 
-function playGame(){
-    let humanCore = 0;
-    let computerCore = 0;
-    let time = 0
-    for (let i = 0; i < 5; i++){
-        let humanChoice = getHumanChoise();
-        let computerChoice = getComputerChoice();
-        let result = playRound(humanChoice, computerChoice);
-        if (result == 0){
-            humanCore += 0;
-            computerCore += 0;
-        }
-        else if (result == 1){
-            humanCore++;
-        }
-        else {
-            computerCore++;
-        }
-    }
-    console.log(`Your core is ${humanCore}`);
-    console.log(`computer core is ${computerCore}`);
-}
-
+    console.log(computerChoice)
+    console.log(playerChoice);
+});
 
 
