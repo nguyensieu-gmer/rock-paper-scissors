@@ -69,6 +69,5 @@ function playGame(){
     console.log(`computer core is ${computerCore}`);
 }
 
-playGame();
 
 
