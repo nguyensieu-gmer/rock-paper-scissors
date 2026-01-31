@@ -11,6 +11,9 @@ let playerMeme = document.querySelector("#meme_player");
 let computerMeme = document.querySelector("#meme_computer");
 let playerScore = document.querySelector("#playerScore");
 let computerScore = document.querySelector("#computerScore");
+let endMessage = document.querySelector("#endMessage");
+let restartGame = document.querySelector("#restartGame");
+let endgame = document.querySelector("#endgame");
 
 // listener of player option
 function responeChoices(e) {
@@ -57,6 +60,7 @@ function responeChoices(e) {
     } else if (result === -1){
         computerScore.textContent = `${Number(computerScore.textContent) + 1}`
     }
+    checkEndGame();
 }
 
 // win return 1; lose return -1; draw return 0
@@ -91,6 +95,30 @@ function defineWinner(playerChoice, computerChoice){
     }
 }
 
+function checkEndGame(){
+    let p = playerScore.textContent;
+    let c = computerScore.textContent;
+    if (p === '5' || c === '5'){
+        endgame.classList.remove("hidden");
+
+        endMessage.textContent = p === '5' ? "YOU WIN!" : "YOU LOSE!";
+        choices.removeEventListener("click", responeChoices);
+    }
+}
+
+restartGame.addEventListener("click", e => {
+    endgame.classList.add("hidden");
+    playerMeme.src = "";
+    computerMeme.src = "";
+    playerScore.textContent = "0";
+    computerScore.textContent = "0";
+    playerSymbol.src = "/image/rock.png";
+    computerSymbol.src = "/image/rock.png";
+
+    choices.addEventListener("click", responeChoices);
+});
+
 choices.addEventListener("click", responeChoices);
+
 
 
