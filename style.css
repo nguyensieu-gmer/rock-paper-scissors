@@ -221,3 +221,21 @@ img {
 .hidden{
     display: none;
 }
+
+/* footer */
+
+.footer{
+    position: fixed;
+    height: 50px;
+    bottom: 0;
+    background-color: black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.footer .content{
+    font-size: 25px;
+}
