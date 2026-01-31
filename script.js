@@ -1,24 +1,96 @@
 function randomChoise(){
-    return Math.floor(Math.random() * 3);
+    return ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 3)];
 }
 
 let playerChoice;
 let computerChoice;
 let choices = document.querySelector(".option");
-choices.addEventListener("click", e => {
+let playerSymbol = document.querySelector("#player_choice");
+let computerSymbol = document.querySelector("#computer_choice");
+let playerMeme = document.querySelector("#meme_player");
+let computerMeme = document.querySelector("#meme_computer");
+let playerScore = document.querySelector("#playerScore");
+let computerScore = document.querySelector("#computerScore");
+
+// listener of player option
+function responeChoices(e) {
     if (e.target.id === "choice_1"){
-        playerChoice = 0;
+        playerChoice = 'rock';
+        playerSymbol.src = "/image/rock.png";
     }
     else if (e.target.id === "choice_2"){
-        playerChoice = 1;
+        playerChoice = 'paper';
+        playerSymbol.src = "/image/paper.png";
+    }
+    else if (e.target.id === "choice_3"){
+        playerChoice = 'scissors';
+        playerSymbol.src = "/image/scissors.png"
+    } else return;
+
+
+    computerChoice = randomChoise();
+    if (computerChoice === "rock"){
+        computerSymbol.src = "/image/rock.png";
+    }
+    else if (computerChoice === "paper"){
+        computerSymbol.src = "/image/paper.png";
     }
     else{
-        playerChoice = 2;
+        computerSymbol.src = "/image/scissors.png"
     }
-    computerChoice = randomChoise();
 
-    console.log(computerChoice)
-    console.log(playerChoice);
-});
+    let result = defineWinner(playerChoice, computerChoice);
+    if (result === 0){
+        playerMeme.src = "/image/draw.jpg";
+        computerMeme.src = "/image/draw.jpg";
+    } else if (result === 1){
+        playerMeme.src = "/image/winmeme.jpeg";
+        computerMeme.src = "/image/losememe.webp"
+    }
+    else{
+        playerMeme.src = "/image/losememe.webp";
+        computerMeme.src = "/image/winmeme.jpeg";
+    }
+
+    if (result === 1){
+        playerScore.textContent = `${Number(playerScore.textContent) + 1}`
+    } else if (result === -1){
+        computerScore.textContent = `${Number(computerScore.textContent) + 1}`
+    }
+}
+
+// win return 1; lose return -1; draw return 0
+function defineWinner(playerChoice, computerChoice){
+    if (playerChoice === computerChoice){
+        return 0;
+    } else {
+        if (playerChoice === 'rock'){
+            if (computerChoice === 'paper'){
+                return -1;
+            }
+            else if (computerChoice === 'scissors') {
+                return 1;
+            }
+        }
+        else if (playerChoice === 'paper'){
+            if (computerChoice === 'rock'){
+                return 1;
+            }
+            else if (computerChoice === 'scissors'){
+                return -1;
+            }
+        }
+        else if (playerChoice === 'scissors'){ 
+            if (computerChoice === 'paper'){
+                return 1;
+            }
+            else if (computerChoice === 'rock') {
+                return -1;
+            }
+        }
+    }
+}
+
+choices.addEventListener("click", responeChoices);
 
 
