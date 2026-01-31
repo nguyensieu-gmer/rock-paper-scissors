@@ -19,40 +19,40 @@ let endgame = document.querySelector("#endgame");
 function responeChoices(e) {
     if (e.target.id === "choice_1"){
         playerChoice = 'rock';
-        playerSymbol.src = "/image/rock.png";
+        playerSymbol.src = "./image/rock.png";
     }
     else if (e.target.id === "choice_2"){
         playerChoice = 'paper';
-        playerSymbol.src = "/image/paper.png";
+        playerSymbol.src = "./image/paper.png";
     }
     else if (e.target.id === "choice_3"){
         playerChoice = 'scissors';
-        playerSymbol.src = "/image/scissors.png"
+        playerSymbol.src = "./image/scissors.png"
     } else return;
 
 
     computerChoice = randomChoise();
     if (computerChoice === "rock"){
-        computerSymbol.src = "/image/rock.png";
+        computerSymbol.src = "./image/rock.png";
     }
     else if (computerChoice === "paper"){
-        computerSymbol.src = "/image/paper.png";
+        computerSymbol.src = "./image/paper.png";
     }
     else{
-        computerSymbol.src = "/image/scissors.png"
+        computerSymbol.src = "./image/scissors.png"
     }
 
     let result = defineWinner(playerChoice, computerChoice);
     if (result === 0){
-        playerMeme.src = "/image/draw.jpg";
-        computerMeme.src = "/image/draw.jpg";
+        playerMeme.src = "./image/draw.jpg";
+        computerMeme.src = "./image/draw.jpg";
     } else if (result === 1){
-        playerMeme.src = "/image/winmeme.jpeg";
-        computerMeme.src = "/image/losememe.webp"
+        playerMeme.src = "./image/winmeme.jpeg";
+        computerMeme.src = "./image/losememe.webp"
     }
     else{
-        playerMeme.src = "/image/losememe.webp";
-        computerMeme.src = "/image/winmeme.jpeg";
+        playerMeme.src = "./image/losememe.webp";
+        computerMeme.src = "./image/winmeme.jpeg";
     }
 
     if (result === 1){
@@ -112,8 +112,8 @@ restartGame.addEventListener("click", e => {
     computerMeme.src = "";
     playerScore.textContent = "0";
     computerScore.textContent = "0";
-    playerSymbol.src = "/image/rock.png";
-    computerSymbol.src = "/image/rock.png";
+    playerSymbol.src = "./image/rock.png";
+    computerSymbol.src = "./image/rock.png";
 
     choices.addEventListener("click", responeChoices);
 });
